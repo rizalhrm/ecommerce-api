@@ -7,7 +7,12 @@ class OrderSchema extends Schema {
   up () {
     this.create('orders', (table) => {
       table.increments()
-      table.integer('product_id').unsigned().references('id').inTable('products')
+      table.integer('product_id')
+      .unsigned()
+      .references('id')
+      .inTable('products')
+      .onUpdate('NO ACTION')
+      .onDelete('SET NULL');
       table.integer('qty')
       table.double('price')
       table.timestamps()

@@ -1,11 +1,12 @@
 'use strict'
 
-const Order = use('App/Models/Order')
+const Order = use('App/Models/Order');
+const Product = use('App/Models/Product');
 
 class OrderController {
 
-    async index ({response}) {
-        let orders = await Order.all()
+    async index ({ response }) {
+        let orders = await Order.query().with('product').fetch();
         return response.json(orders)
     }
 

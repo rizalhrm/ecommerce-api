@@ -10,6 +10,9 @@ class Order extends Model {
     static get primaryKey() {
         return 'id'
     }
+    product() {
+        return this.belongsTo("App/Models/Product");
+    }
 }
 
 module.exports = Order
