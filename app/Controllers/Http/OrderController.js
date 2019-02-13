@@ -44,10 +44,10 @@ class OrderController {
     async delete ({params, response}) {
         const order = await Order.find(params.id)
         if (!order) {
-        return response.status(404).json({data: 'Resource not found'})
+            return response.status(404).json({data: 'Resource not found'})
         }
         await order.delete()
-        return response.status(204).json(null)
+            return response.status(204).json(null)
         }
     }
 
