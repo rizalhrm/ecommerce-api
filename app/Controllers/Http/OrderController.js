@@ -49,6 +49,14 @@ class OrderController {
         await order.delete()
             return response.status(204).json(null)
         }
+
+    async destroy ({response}) {
+        await Order.truncate()
+        return response.json(null);
     }
+    
+}
+
+
 
 module.exports = OrderController
