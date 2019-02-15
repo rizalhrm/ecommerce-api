@@ -17,7 +17,7 @@
 const Route = use('Route')
 
 Route.get('/', () => {
-  return { greeting: 'Hello world in JSON' }
+  return { greeting: 'Selamat Datang di API Rizal Hermawan' }
 })
 
 Route.group(() => {
@@ -32,4 +32,8 @@ Route.group(() => {
   Route.patch('order/:id', 'OrderController.update')
   Route.delete('order/:id', 'OrderController.delete')
   Route.get('orders/destroy', 'OrderController.destroy')
+
+  Route.get('banks', 'BankController.index')
+  Route.post('bank', 'BankController.store')
+  Route.get('bank/:id', 'BankController.show')
 }).prefix('api/v1')
