@@ -17,7 +17,7 @@
 const Route = use('Route')
 
 Route.get('/', () => {
-  return { greeting: 'Selamat Datang di API Rizal Hermawan' }
+  return { greeting: 'Welcome Friends' }
 })
 
 Route.group(() => {
@@ -36,4 +36,6 @@ Route.group(() => {
   Route.get('banks', 'BankController.index')
   Route.post('bank', 'BankController.store')
   Route.get('bank/:id', 'BankController.show')
+
+  Route.get('couriers', 'CourierController.index')
 }).prefix('api/v1')
