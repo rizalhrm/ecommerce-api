@@ -25,6 +25,7 @@ Route.group(() => {
   Route.get('product/:id', 'ProductController.show')
   Route.post('products', 'ProductController.store')
   Route.put('products/:id', 'ProductController.update')
+  Route.delete('product/:id', 'ProductController.delete')
 
   Route.get('orders', 'OrderController.index')
   Route.get('order/:id', 'OrderController.show')
@@ -38,4 +39,8 @@ Route.group(() => {
   Route.get('bank/:id', 'BankController.show')
 
   Route.get('couriers', 'CourierController.index')
+
+  Route.get('login', 'UserController.login').middleware('guest')
+  Route.post('users/:id', 'UserController.show').middleware('auth')
+  
 }).prefix('api/v1')

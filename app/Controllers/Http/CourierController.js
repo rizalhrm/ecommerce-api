@@ -4,8 +4,15 @@ const Courier = use('App/Models/Courier');
 
 class CourierController {
     async index ({response}) {
-        let couriers = await Courier.all()
-        return response.json(couriers)
+        try {
+            let couriers = await Courier.all()
+            return response.json(couriers)
+        } catch (err) {
+            return {
+                status: "Something went wrong",
+                message: err.message
+            }
+        }
     }
 }
 

@@ -13,6 +13,10 @@ class Product extends Model {
     order () {
         return this.hasMany('App/Models/Order')
     }
+
+    async products() {
+        return await Database.select("*").from("products");
+    }
 }
 
 module.exports = Product
