@@ -22,25 +22,36 @@ Route.get('/', () => {
 
 Route.group(() => {
   Route.get('products', 'ProductController.index')
-  Route.get('product/:id', 'ProductController.show')
-  Route.post('products', 'ProductController.store')
-  Route.put('products/:id', 'ProductController.update')
-  Route.delete('product/:id', 'ProductController.delete')
+  Route.get('product/:id', 'ProductController.show');
+  Route.post('products', 'ProductController.store');
+  Route.put('products/:id', 'ProductController.update');
+  Route.delete('product/:id', 'ProductController.delete');
 
   Route.get('orders', 'OrderController.index')
-  Route.get('order/:id', 'OrderController.show')
-  Route.post('order', 'OrderController.store')
-  Route.patch('order/:id', 'OrderController.update')
-  Route.delete('order/:id', 'OrderController.delete')
-  Route.get('orders/destroy', 'OrderController.destroy')
+  Route.get('order/:id', 'OrderController.show');
+  Route.post('order', 'OrderController.store');
+  Route.patch('order/:id', 'OrderController.update');
+  Route.delete('order/:id', 'OrderController.delete');
+  Route.get('orders/destroy', 'OrderController.destroy');
 
   Route.get('banks', 'BankController.index')
-  Route.post('bank', 'BankController.store')
-  Route.get('bank/:id', 'BankController.show')
+  Route.post('bank', 'BankController.store');
+  Route.get('bank/:id', 'BankController.show');
 
   Route.get('couriers', 'CourierController.index')
 
-  Route.get('login', 'UserController.login').middleware('guest')
-  Route.post('users/:id', 'UserController.show').middleware('auth')
-  
+  Route.post("auth/register", "AuthController.register");
+  Route.post("auth/login", "AuthController.login");
+  Route.post("auth/logout", "AuthController.logout").middleware("auth");
+  Route.post("auth/profile", "AuthController.profile").middleware("auth");
+  Route.post("auth/refresh_token", "AuthController.refreshToken");
+
+  Route.get('user/:id', 'ProfileController.getUser').middleware("auth");
 }).prefix('api/v1')
+
+
+//Route.group(('products')=> {
+  //   Route.get('ProductController.index');
+  //   Route.post('ProductController.store');
+  //   Route.put('/:id', 'ProductController.update');
+  // }).prefix('api/v1') 

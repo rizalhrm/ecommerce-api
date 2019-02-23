@@ -13,19 +13,18 @@ class ProductController {
                   return Product.query()
                 },
             
-                // <GET param>:<DB column> for sortable columns
+                
                 sortable: {
-                  id: 'id',
                   name: 'name',
                   price:  'price',
                   rating: 'rating',
                   created_at: 'created_at'
                 },
             
-                // global searchable fields
+                
                 searchable: ['name', 'description'],
             
-                // <GET param>:<DB column> for filterable columns
+                
                 filterable: {
                   name: 'name',
                   price:  'price',
