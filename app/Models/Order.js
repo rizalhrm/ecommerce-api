@@ -13,6 +13,9 @@ class Order extends Model {
     product() {
         return this.belongsTo("App/Models/Product");
     }
+    users() {
+        return this.belongsTo("App/Models/User");
+    }
 }
 
 module.exports = Order

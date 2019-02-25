@@ -13,8 +13,13 @@ class OrderSchema extends Schema {
       .inTable('products')
       .onUpdate('NO ACTION')
       .onDelete('SET NULL');
-      table.integer('qty')
-      table.double('price')
+      table.integer('qty');
+      table.double('price');
+      table
+        .integer("user_id")
+        .unsigned()
+        .references("id")
+        .inTable("users");
       table.timestamps()
     })
   }
