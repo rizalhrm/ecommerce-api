@@ -1,4 +1,4 @@
-# Repository ini adalah BackEnd dari https://git.arkademy.com/rizalhrm24/tokoOnline
+# Repository ini adalah BackEnd dari https://github.com/rizalhrm/ecommerce-app
 
 # Adonis API application
 
